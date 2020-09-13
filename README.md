@@ -8,32 +8,27 @@ difference being that the GET will store and return the data, while the POST wil
 * JAVA_HOME Environment variable has to be set
 
 ## Getting Started
-Clone repository
-* `git clone https://github.com/StefanJVR2/spacex.capsules.git`
-
 To start the application run the following commands in command prompt
-* `mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=capgemini/spacex.capsules`
-* `docker run -p 8080:8080 -t capgemini/spacex.capsules`
-
-### OpenAPI
-![image info](./assets/openapi.png)
-A small introduction
-
-`The OpenAPI Specification (OAS) defines a standard, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.
-An OpenAPI definition can then be used by documentation generation tools to display the API, code generation tools to generate servers and clients in various programming languages, testing tools, and many other use cases.
-`
-
-(https://swagger.io/specification/)
-
-
-**In this project the API is defined [here](./contracts/service-spacex-capsules.yaml) and an API Interface is generated using [this](https://github.com/OpenAPITools/openapi-generator) maven plugin.**
+* Clone repository: `git clone https://github.com/StefanJVR2/spacex.capsules.git`
+* Compile and build docker image: `mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=capgemini/spacex.capsules`
+* Run app `docker run -p 8080:8080 -t capgemini/spacex.capsules`
 
 ## Tests
 To run tests run `mvnw clean compile test`
 
 ## Postman collection
 A postman collection with all available calls can be found [here](./postman/SpaceX%20Capsule%20API%20Test%20Collection.postman_collection.json)
- 
+
+
+## OpenAPI
+![image info](./assets/openapi.png)
+The OpenAPI Specification (OAS) defines a standard, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.
+An OpenAPI definition can then be used by documentation generation tools to display the API, code generation tools to generate servers and clients in various programming languages, testing tools, and many other use cases.
+(https://swagger.io/specification/)
+
+
+**In this project the API is defined [here](./contracts/service-spacex-capsules.yaml) and an API Interface is generated using [this](https://github.com/OpenAPITools/openapi-generator) maven plugin.**
+
 
 ### Reference Documentation
 For further reference, please consider the following sections:
