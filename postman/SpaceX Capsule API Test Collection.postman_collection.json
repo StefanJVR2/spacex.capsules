@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "6bf743b6-31d4-4083-81b8-3b77c1628953",
+		"name": "SpaceX Capsule API Test Collection",
+		"description": "SpaceX Capsule API Test Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/spacex-proxy/capsules",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/spacex-proxy/capsules",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"spacex-proxy",
+						"capsules"
+					]
+				},
+				"description": "Get All Capsules"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/spacex-proxy/capsules/C112",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/spacex-proxy/capsules/C112",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"spacex-proxy",
+						"capsules",
+						"C112"
+					]
+				},
+				"description": "Create Capsules in H2 Database"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/spacex-proxy/capsules/C112",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/spacex-proxy/capsules/C112",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"spacex-proxy",
+						"capsules",
+						"C112"
+					]
+				},
+				"description": "Get Specific Capsule"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/spacex-proxy/capsules/C112",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/spacex-proxy/capsules/C112",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"spacex-proxy",
+						"capsules",
+						"C112"
+					]
+				},
+				"description": "Delete Specific Capsule"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

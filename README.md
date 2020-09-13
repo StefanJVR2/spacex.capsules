@@ -3,9 +3,23 @@ This API acts as a proxy for https://api.spacexdata.com/v3/capsules/, it makes o
 There are two ways to add a capsule to the in-memory store, either by performing a GET on `/capsules/{capsule_serial}` or a POST, the main 
 difference being that the GET will store and return the data, while the POST will only store the data.
 
+## Prerequisites
+* Docker has to be installed locally, docker desktop install can be found at https://www.docker.com/products/docker-desktop
+
 ## Getting Started
+Clone repository
+* `git clone https://github.com/StefanJVR2/spacex.capsules.git`
+
+To start the application run the following commands
+* `mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=capgemini/spacex.capsules`
+* `docker run -p 8080:8080 -t capgemini/spacex.capsules`
 
 
+## Tests
+To run tests run `mvnw clean compile test`
+
+## Postman collection
+A postman collection with all available calls can be found [here](./postman/SpaceX%20Capsule%20API%20Test%20Collection.postman_collection.json)
  
 
 ### Reference Documentation
