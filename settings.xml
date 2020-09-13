@@ -1,0 +1,9 @@
+<settings>
+    <servers>
+        <server>
+            <id>localhost:5000</id>
+            <username>me</username>
+            <password>mypassword</password>
+        </server>
+    </servers>
+</settings>

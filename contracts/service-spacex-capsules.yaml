@@ -1,0 +1,136 @@
+openapi: 3.0.0
+info:
+  description: I Love SpaceX
+  version: "1.0"
+  title: SpaceX Capsules FTW API
+  termsOfService: urn:tos
+  contact: {}
+paths:
+  /capsules: 
+    get:
+      summary: Get all capsules information in the services memory store. This call does not fetch information from SpaceX, it only retrieves what has been looked up/posted using /capsules/{capsule_serial}
+      operationId: getAllCapsules
+      security:
+        - bearerAuth: []
+      tags:
+        - CapsuleData
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Capsule"
+        204:
+          description: No capsules found in memory store
+        412:
+          description: Could not retrieve capsule data from memory store
+          
+  /capsules/{capsule_serial}:
+    get:
+      summary: Get details about a specific SpaceX capsule, including launches landings and crashes
+      operationId: getCapsuleData
+      tags:
+        - CapsuleData
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: capsule_serial
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Capsule"
+        204:
+          description: Nothing found
+        412:
+          description: Could not fetch capsule details
+          
+    post:
+      summary: Save capsule information
+      operationId: createCapsuleData
+      parameters: 
+        - in: path
+          name: capsule_serial
+          required: true
+          schema:
+            type: string
+      security:
+        - bearerAuth: []
+      tags:
+        - CapsuleData
+      responses:
+        201:
+          description: Created
+        412:
+          description: Could not add capsule data to memory store
+          
+    delete:
+      summary: Delete capsule information
+      operationId: deleteCapsuleData
+      tags:
+        - CapsuleData
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: capsule_serial
+          required: true
+          schema:
+            type: string
+      responses:
+        204:
+          description: OK
+        412:
+          description: Could not delete capsule from in memory store
+          
+    
+
+servers:
+  - url: http://localhost:8080/spacex-proxy
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    Capsule:
+      type: object
+      required:
+        - capsule_serial
+      properties:
+        capsule_serial:
+         type: string
+        capsule_id:
+         type: string
+        status:
+         type: string
+        original_launch:
+         type: string
+         format: date-time
+        landings:
+         type: number
+        reuse_count:
+          type: number
+        missions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Mission'
+
+    Mission:
+      properties:
+        name:
+          type: string
+        flight:
+          type: number
